@@ -25,13 +25,29 @@ app.use(cors({
 app.use("/api/auth", authRoutes);
 app.use("/api/msg", msgRoutes);
 
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../Frontend/dist")));
+
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "../Frontend", "dist", "index.html"));
+//   });
+// }
+
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../Frontend/dist")));
+  const frontendDistPath = path.join(__dirname, "../Frontend/dist");
+
+  app.use(express.static(frontendDistPath));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../Frontend", "dist", "index.html"));
+    res.sendFile(path.join(frontendDistPath, "index.html"), (err) => {
+      if (err) {
+        console.error("Error sending index.html:", err);
+        res.status(500).send("Server error");
+      }
+    });
   });
 }
+
 
 connectDB()
   .then(() => {
