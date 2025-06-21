@@ -52,7 +52,9 @@ const SignUpPage = () => {
                 <span className="label-text font-medium">Full Name</span>
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-3 size-5 text-base-content/40" />
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                <User className="h-5 w-5 text-base-content/40" />
+                </div>
                 <input
                   type="text"
                   className="input w-full pl-10 border border-base-content/20 focus:border-primary focus:outline-none"
@@ -70,8 +72,9 @@ const SignUpPage = () => {
                 <span className="label-text font-medium">Email</span>
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3.5 size-5 text-base-content/40" />
-
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                <Mail className="h-5 w-5 text-base-content/40" />
+              </div>
                 <input
                   type="email"
                   className="input w-full pl-10 border border-base-content/20 focus:border-primary focus:outline-none"
@@ -90,7 +93,9 @@ const SignUpPage = () => {
                 <span className="label-text font-medium">Password</span>
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 size-5 text-base-content/40" />
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                <Lock className="h-5 w-5 text-base-content/40" />
+                </div>
                 <input
                   type={showPassword ? "text" : "password"}
                   className="input w-full pl-10 border border-base-content/20 focus:border-primary focus:outline-none"
