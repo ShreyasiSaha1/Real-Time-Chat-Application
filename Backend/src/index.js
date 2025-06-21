@@ -33,22 +33,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// if (process.env.NODE_ENV === "production") {
-//   const frontendDistPath = path.join(__dirname, "../Frontend/dist");
-
-//   app.use(express.static(frontendDistPath));
-
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(frontendDistPath, "index.html"), (err) => {
-//       if (err) {
-//         console.error("Error sending index.html:", err);
-//         res.status(500).send("Server error");
-//       }
-//     });
-//   });
-// }
-
-
 connectDB()
   .then(() => {
     server.listen(PORT, () => {
